@@ -8,10 +8,8 @@ const postContent = document.getElementById('post-content');
 const api = 'https://us-central1-open-classrooms-js-for-the-web.cloudfunctions.net/widgets';
 
 function makeRequest(verb, url, data) {
-
     return new Promise((resolve, reject) => {
-
-        let request = new XMLHttpRequest;
+        let request = new XMLHttpRequest();
         request.open(verb, url);
         request.onreadystatechange = () => {
             if (request.readyState === 4) {
@@ -30,8 +28,6 @@ function makeRequest(verb, url, data) {
         }
     });
 };
-
-
 async function createPost() {
     const uidPromise = makeRequest('GET', api + '/generate-uid');
     const titlePromise = makeRequest('GET', api + '/generate-title');
@@ -44,14 +40,11 @@ async function createPost() {
         title: titleResponse.title,
         content: loremResponse.lorem
     });
-
     const postResponse = await postPromise;
-
     postTitle.textContent = postResponse.post.title;
     postId.textContent = postResponse.post.id;
     postContent.textContent = postResponse.post.content;
 }
-
 generateButton.addEventListener('click', () => {
     createPost();
-})
+});
