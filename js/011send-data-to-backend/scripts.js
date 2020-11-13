@@ -46,7 +46,7 @@ async function submitFormData(post) {
         responseTitle.textContent = response.post.title;
         responseId.textContent - response.post.id;
         responseContent.textContent = response.post.content;
-    } catch (errorRsponse) {
+    } catch (errorResponse) {
         responseMessage.textContent = errorResponse.error
     };
     responseMessage.textContent = response.message;
